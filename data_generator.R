@@ -35,7 +35,7 @@ prob_generated <- read.csv("weights.csv", stringsAsFactors = F) %>%
 # Output 
 # df_freq - dataframe com as frequẽncias de registros das categorias das variáveis de cada grupo
 freq_generator <- function(seed, prob_generated, n, prob_k){
-  n_cluster <- round(n*prob)
+  n_cluster <- round(n*prob_k)
   names(n_cluster) <- c("0", "1", "2")
   
   prob_format_edit <- prob_generated %>% 
