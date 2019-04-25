@@ -14,7 +14,7 @@ library(stats)
 ######################################## Parameters #############################################
 ###############################################################################################
 
-n_s <- c(100, 250)
+n_s <- c(500, 1000)
 # Proporção de registros em cada cluster
 prob_k <- c(0.5, 0.3, 0.2)
 
@@ -101,13 +101,17 @@ data_generator <- function(seed, prob_generated, n, prob_k){
 ################################################################################################
 
 n_montecarlo_replic <- 10
+n_exp <- 100
 
 for(n in n_s){
   initial_seed <- 09091997
   
-  for(id_replic in 1:n_montecarlo_replic){
+  for(id_replic in 0:(n_montecarlo_replic-1)){
     df <- data_generator(initial_seed, prob_generated, n, prob_k)
-    write.csv(df, paste0("data/n_", n, "/df_", id_replic, ".csv"))
+    for(exp in 0:(n_exp-1)){
+      write.csv(df, paste0("data/n_", n, "/df_", id_replic, "_", exp, ".csv"))
+    }
+    
     initial_seed <- initial_seed + 1
   }
 }
