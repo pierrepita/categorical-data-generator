@@ -100,7 +100,7 @@ data_generator <- function(seed, prob_generated, n, prob_k){
 ########################################## Monte Carlo Simulations #############################
 ################################################################################################
 
-n_montecarlo_replic <- 100
+n_montecarlo_replic <- 10
 
 for(n in n_s){
   initial_seed <- 09091997
